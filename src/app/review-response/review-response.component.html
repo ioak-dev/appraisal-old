@@ -1,0 +1,76 @@
+<div *ngIf="receiverIds.length !== 0">
+  <mat-form-field style="width: 100%">
+    <mat-select #MatSelect placeholder="Feedback Receiver" [(ngModel)]="selectedValue"
+                (ngModelChange)="loadFeedback(selectedValue)">
+      <mat-option #MatOption *ngFor="let receiverId of receiverIds; let x = index; trackBy:trackByIndex;" [value]="receiverId">
+        {{userNameMap[receiverId]}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel #mep="matExpansionPanel"  *ngFor="let providerId  of providerIds; let i = index;" (opened)="loadAnswers(providerId)">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="width: 70%">
+            {{userNameMap[providerId]}}
+          </mat-panel-title>
+          <mat-panel-description fxHide="false" fxHide.lt-md style="justify-content: space-evenly">
+            {{statusJson[status[i]]}}
+          </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <form class="response-form" *ngIf="status[i] === 'REVIEW_RESPONSE'">
+          <div *ngFor="let question of questions; let i = index; trackBy:trackByIndex;">
+            <mat-label>{{question}}</mat-label>
+            <p class="answer">{{answers[i]}}</p>
+            <hr>
+          </div>
+        </form>
+        <div *ngIf="status[i] === 'PENDING_RESPONSE'">
+          <h3>{{message_response_pending}}</h3>
+        </div>
+        <div *ngIf="status[i] === 'COMPLETED'">
+          <h3>{{message_response_approved}}</h3>
+        </div>
+
+        <mat-action-row *ngIf="status[i] === 'REVIEW_RESPONSE'">
+          <button type="button" mat-stroked-button (click)="approve('Approve')"
+                  class="btn btn-outline-primary sharp">
+            <mat-icon>done</mat-icon>
+            Approve
+          </button>
+          &nbsp;
+          <button type="button" mat-stroked-button (click)="openDialog()"
+                  class="btn btn-outline-primary sharp" color="warn">
+            <mat-icon>not_interested</mat-icon>
+            Reject
+          </button>
+        </mat-action-row>
+        <mat-action-row *ngIf="status[i] === 'PENDING_RESPONSE'">
+          <button type="button" mat-stroked-button (click)="reminder('Reminder Send')"
+                  class="btn btn-outline-primary sharp">
+            <mat-icon>done</mat-icon>
+            Send Reminder
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <p *ngIf="receiverIds.length > 1">
+    <button [disabled]="index < 1" type="button" mat-stroked-button
+            (click)="previous()" class="btn btn-outline-primary sharp">
+      <mat-icon>skip_previous</mat-icon>
+      Previous
+    </button>
+    &nbsp;
+    <button [disabled]="index === (receiverIds.length-1)" type="button" mat-stroked-button
+            (click)="next()" class="btn btn-outline-primary sharp">
+      Next
+      <mat-icon>skip_next</mat-icon>
+    </button>
+  </p>
+</div>
+<h3 *ngIf="receiverIds.length === 0">{{message_no_action}}</h3>

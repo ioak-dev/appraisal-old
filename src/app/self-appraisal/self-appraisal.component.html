@@ -1,0 +1,65 @@
+<div style="margin: 0 0 60px 0;">
+  <mat-accordion>
+    <mat-expansion-panel class="expansion-panel" #mep="matExpansionPanel">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="width: 70%">
+          Goals/Targets achieved
+        </mat-panel-title>
+        <mat-panel-description fxHide="false" fxHide.lt-md style="justify-content: space-evenly">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-self-appraisal-sectionone [appraisalVisibility]="appraisalVisibility" [reviewerVisibility]="reviewerVisibility" [currentUser]="currentUser"></app-self-appraisal-sectionone>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="expansion-panel" #mep="matExpansionPanel">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="width: 70%">Additional activities/tasks performed</mat-panel-title>
+        <mat-panel-description fxHide="false" fxHide.lt-md style="justify-content: space-evenly"></mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-self-appraisal-sectiontwo [section]="'sectiontwo'" [appraisalVisibility]="appraisalVisibility" [reviewerVisibility]="reviewerVisibility" [currentUser]="currentUser"></app-self-appraisal-sectiontwo>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="expansion-panel" #mep="matExpansionPanel">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="width: 70%">Future Aspirations</mat-panel-title>
+        <mat-panel-description fxHide="false" fxHide.lt-md style="justify-content: space-evenly"></mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-self-appraisal-sectiontwo [section]="'sectionthree'" [appraisalVisibility]="appraisalVisibility" [reviewerVisibility]="reviewerVisibility" [currentUser]="currentUser"></app-self-appraisal-sectiontwo>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="expansion-panel" #mep="matExpansionPanel">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="width: 70%">
+          Additional Feedback from you
+        </mat-panel-title>
+        <mat-panel-description fxHide="false" fxHide.lt-md style="justify-content: space-evenly">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-self-appraisal-sectionfour [appraisalVisibility]="appraisalVisibility" [currentUser]="currentUser"></app-self-appraisal-sectionfour>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<footer>
+  <div *ngIf="error" layout="row" layout-align="center center" class="error">
+    <mat-icon color="warn">error</mat-icon>
+    <mat-label> <a title="Click to see Errors" (click)="openErrorDialog()">{{error.error.sectionOneError.length}} errors</a> </mat-label>
+  </div>
+  <div *ngIf="appraisalVisibility === 'EDITABLE'" layout="row" layout-align="center center" class="footer-button">
+    <button type="button" mat-stroked-button (click)="save()"
+            class="btn btn-outline-primary sharp">
+      <mat-icon>create</mat-icon>
+      Save as Draft
+    </button>
+    &nbsp;
+    <button type="button" mat-stroked-button (click)="checkResponse()"
+            class="btn btn-outline-primary sharp">
+      <mat-icon>done</mat-icon>
+      Submit
+    </button>
+  </div>
+
+  <div *ngIf="appraisalVisibility !== 'EDITABLE'" layout="row" layout-align="center center" class="footer-button">
+    <p class="submit-msg">Your self appraisal is submitted</p>
+  </div>
+</footer>
+

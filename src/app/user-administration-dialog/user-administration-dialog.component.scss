@@ -1,0 +1,35 @@
+h2 {
+    margin: 0;
+}
+h4 {
+    margin-top: 0;
+    font-weight: normal;
+}
+.mat-dialog-content {
+    overflow: hidden;
+}
+.mat-slide-toggle {
+    height: 40px;
+    font-size: small;
+}
+.mat-checkbox-label {
+    font-size: small;
+}
+.mat-dialog-actions {
+    margin: 10px 0 -10px;
+    &[align='end'] {
+        justify-content: flex-end;
+    }
+    &[align='center'] {
+        justify-content: center;
+    }
+}
+.mat-expansion-panel {
+    box-shadow: none;
+    .mat-expansion-panel-header {
+        padding: 0 1px;
+    }
+}
+.subrole_checkbox{
+  margin-left: 10%;
+}

@@ -1,0 +1,36 @@
+
+
+<div class="table-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Rating Column -->
+    <ng-container matColumnDef="rating">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> rating </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">rating:</span>
+        {{row.rating}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- appraisalCriteria Column -->
+    <ng-container matColumnDef="appraisalCriteria">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Appraisee criteria </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="mobile-label">appraisalCriteria:</span>
+        {{row.appraisalCriteria}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- reviewerCriteria Column -->
+    <ng-container matColumnDef="reviewerCriteria">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="{'hide': !authService.isReviewer}"> Reviewer criteria </mat-header-cell>
+      <mat-cell *matCellDef="let row" [ngClass]="{'hide': !authService.isReviewer}">
+        <span class="mobile-label">Reviewer criteria:</span>
+        {{row.reviewerCriteria}}
+      </mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

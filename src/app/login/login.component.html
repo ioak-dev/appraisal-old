@@ -1,0 +1,98 @@
+<!--<button type="submit" mat-stroked-button (click)="login()" color="primary"><mat-icon>create</mat-icon> Sign in with Office 365 Account</button>-->
+
+<!--VERSION 1-->
+<!--
+<h4 id="WelcomeMessage"></h4>
+<button id="SignIn" onclick="signIn()">Sign In</button>
+<br/><br/>
+<pre id="json"></pre>
+-->
+
+<!--VERSION 2-->
+<div *ngIf="!loggedIn">
+  You are not logged in <a href="/login" id="connect-button">Sign in using Exchange 365</a>
+  <br>
+</div>
+<button *ngIf="loggedIn" type="button" mat-stroked-button (click)="logout()"
+        class="button-large" color="primary">
+  <mat-icon>exit_to_app</mat-icon>
+  Logout
+</button>
+<br><br>
+<button mat-stroked-button class="btn btn-outline-primary sharp" (click)="openSupportDialog()">
+  <mat-icon>email</mat-icon>
+  Contact support
+</button>
+<!--&nbsp;-->
+<!--<button mat-stroked-button class="btn btn-outline-primary sharp"  (click)="help()">-->
+  <!--<mat-icon>block</mat-icon>-->
+  <!--How to unblock content on my browser?-->
+<!--</button>-->
+
+
+
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
+    <!--<div class="container">-->
+        <!--<div id="navbar" class="navbar-collapse collapse">-->
+            <!--<div class="nav navbar-nav navbar-right authed-nav">-->
+                <!--<a href="#signout">Sign out</a>-->
+            <!--</div>-->
+            <!--<div class="nav navbar-nav navbar-right signin">-->
+                <!--<a href="/login" id="connect-button">Sign In</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<!--<div class="container main-container">-->
+    <!--<div id="signin-prompt" class="jumbotron page">-->
+        <!--<h1>Outlook SPA Demo</h1>-->
+        <!--<p>This example shows how to get an OAuth token from Azure using the <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-implicit/">implicit grant flow</a> and to use that token to make calls to the Outlook APIs.</p>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; logged in user welcome &ndash;&gt;-->
+    <!--<div id="logged-in-welcome" class="jumbotron page" style="display: none;">-->
+        <!--<h1>Outlook SPA Demo</h1>-->
+        <!--<p>Welcome <span id="username"></span>!</p>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; unsupported browser message &ndash;&gt;-->
+    <!--<div id="unsupported" class="jumbotron page" style="display: none;">-->
+        <!--<h1>Oops....</h1>-->
+        <!--<p>This page requires browser support for <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">session storage</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues"><code>crypto.getRandomValues</code></a>. Unfortunately, your browser does not support one or both features. Please visit this page using a different browser.</p>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; error message &ndash;&gt;-->
+    <!--<div id="error-display" class="page panel panel-danger" style="display: none;">-->
+        <!--<div class="panel-heading">-->
+            <!--<h3 class="panel-title" id="error-name"></h3>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+            <!--<pre><code id="error-desc"></code></pre>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; token display &ndash;&gt;-->
+    <!--<div id="token-display" class="page panel panel-default" style="display: none;">-->
+        <!--<div class="panel-body">-->
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<th>userDisplayName</th>-->
+                    <!--<th>userDomainType</th>-->
+                    <!--<th>userSigninName</th>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td id="displayName"></td>-->
+                    <!--<td id="domainType"></td>-->
+                    <!--<td id="signinName"></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+            <!--<h4>Expires:</h4>-->
+            <!--<p id="expires-display"></p>-->
+            <!--<h4>Access Token:</h4>-->
+            <!--<pre><code id="token"></code></pre>-->
+            <!--<h4>ID Token:</h4>-->
+            <!--<pre><code id="id-token"></code></pre>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

@@ -1,0 +1,78 @@
+<mat-toolbar color="primary" style="position: fixed; z-index: 999;">
+
+  <mat-toolbar-row class="mat-elevation-z8">
+
+    <a class="logo" fxHide="false" fxHide.lt-md>
+      <img src="../../../../assets/img/logo.png" alt="Westernacher logo" class="tt-retina-logo" height="40">
+    </a>
+    <button mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/home">Home</button>
+    <button *ngIf="authService.loggedIn" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/self-appraisal">Self Appraisal</button>
+    <button *ngIf="authService.isAdministrator" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/user-administration">Access Control</button>
+    <button *ngIf="authService.isReviewer" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/manage-appraisal">Manage Appraisal</button>
+    <button *ngIf="authService.loggedIn" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/goal-definition">Goals</button>
+    <button *ngIf="authService.loggedIn" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/set-goals">Set Goals</button>
+    <button *ngIf="authService.loggedIn" mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/rating-scale">Rating definition</button>
+    <button mat-stroked-button fxHide="false" fxHide.lt-md routerLink="/help">Help</button>
+
+    <button class="logo_menu" mat-stroked-button fxShow="false" fxShow.lt-md [matMenuTriggerFor]="mobileMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a class="logo" fxShow="false" fxShow.lt-md>
+      <img src="../../../../assets/img/logo.png" alt="Westernacher logo" class="tt-retina-logo" height="40">
+    </a>
+
+    <span class="fill-remaining-space"></span>
+
+    <span fxShow="false" fxShow.lt-md class="fill-remaining-space"></span>
+
+    <span mat-icon-button fxHide="false" fxHide.lt-md  *ngIf="this.authService.loggedInUser">{{this.authService.loggedInUser.name}}</span>
+
+    <button mat-icon-button onclick="location.href='https://appraisal.ioak.org/login'">
+      <!--<button mat-icon-button routerLink="/login">-->
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar>
+  <mat-toolbar-row></mat-toolbar-row>
+  <mat-toolbar-row>
+    <span fxShow="false" fxShow.lt-md class="header-mobile">{{pageHeaderService.title}}</span>
+    <span fxHide="false" fxHide.lt-md>{{pageHeaderService.title}}</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-stroked-button fxHide="false" [hidden]="pageHeaderService.hideCycleFromView"
+            [matMenuTriggerFor]="cycleMenu">
+      <span *ngIf="cycleSelectionService.currentCycle">{{cycleSelectionService.currentCycle.name}}</span>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<!--Sub menu for user settings-->
+<mat-menu #accountMenu="matMenu">
+  <!--<button mat-menu-item *ngIf="!loggedIn" routerLink='/login'>Sign In</button>-->
+  <!--<button mat-menu-item *ngIf="loggedIn" routerLink='/login'>Sign Out</button>-->
+  <button mat-menu-item routerLink='/login'>Sign In/Out</button>
+</mat-menu>
+
+<!--Sub menu for Feedback cycle selection-->
+<mat-menu #cycleMenu="matMenu">
+  <button *ngFor="let item of cycleSelectionService.activeCycles" mat-menu-item (click)="changeCycle(item)">{{item.name}}</button>
+</mat-menu>
+
+<!--Sub menu for small displays-->
+<mat-menu #mobileMenu="matMenu">
+  <button mat-menu-item routerLink="/home">Home</button>
+  <button *ngIf="authService.loggedIn" mat-menu-item routerLink="/self-appraisal">Self Appraisal</button>
+  <button *ngIf="authService.isAdministrator" mat-menu-item routerLink="/user-administration">Access Control</button>
+  <button *ngIf="authService.isReviewer" mat-menu-item routerLink="/manage-appraisal">Manage Appraisal</button>
+  <button *ngIf="authService.loggedIn" mat-menu-item routerLink="/goal-definition">Goals</button>
+  <button *ngIf="authService.loggedIn" mat-menu-item routerLink="/set-goals">Set Goals</button>
+  <button *ngIf="authService.loggedIn" mat-menu-item routerLink="/rating-scale">Rating Definition</button>
+  <button mat-menu-item routerLink="/help">Help</button>
+</mat-menu>

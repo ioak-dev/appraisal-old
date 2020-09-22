@@ -1,0 +1,61 @@
+<div *ngIf=" cycleIds.length > 0 && providerIds.length > 1 ">
+
+<div>
+  <mat-checkbox checked="showAllCycles" [(ngModel)]="showAllCycles" [ngModelOptions]="{ standalone: true }"
+                (ngModelChange)="loadCycles(showAllCycles)">{{label_checkbox_cycle}}
+  </mat-checkbox>
+</div>
+<br>
+<div>
+  <mat-form-field>
+    <mat-select #MatSelect placeholder="{{placeholder_select_cycle}}" [(ngModel)]="selectedCycleId"
+                (ngModelChange)="initialize()">
+      <mat-option #MatOption *ngFor="let cycleId of cycleIds" [value]="cycleId">
+        {{cycleNameMap[cycleId]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<br>
+  <mat-form-field style="width: 70%">
+    <mat-select #MatSelect placeholder="{{placeholder_select_provider}}" [(ngModel)]="selectedValue"
+                (ngModelChange)="loadAnswers(selectedValue)">
+      <mat-option #MatOption *ngFor="let providerId of providerIds; let x = index;" [value]="providerId">
+        {{userNameMap[providerId]}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+  <form class="response-form">
+    <div *ngFor="let question of questions; let i = index; trackBy:trackByIndex;">
+      <mat-label>{{question}}</mat-label>
+      <div *ngFor="let answer of answers">
+        <p class="answer_provider" *ngIf="selectedValue === 'all'">{{userNameMap[answer.key]}}</p>
+        <div class="clear_provider"></div>
+        <p class="answer">{{answer.responses[i]}}</p>
+      </div>
+      <hr>
+    </div>
+
+  </form>
+  <p *ngIf=" providerIds.length > 2 && selectedValue !== 'all' ">
+    <button type="button" mat-stroked-button [disabled]="index <= 1"
+            (click)="previous()" class="btn btn-outline-primary sharp">
+      <mat-icon>skip_previous</mat-icon>
+      Previous
+    </button>
+    &nbsp;
+    <button *ngIf="providerIds.length > 1" type="button" mat-stroked-button
+            [disabled]="index === (providerIds.length-1)"
+            (click)="next()" class="btn btn-outline-primary sharp">
+      Next
+      <mat-icon>skip_next</mat-icon>
+    </button>
+
+  </p>
+
+</div>
+<div *ngIf="cycleIds.length === 0 || providerIds.length <= 1">
+  <h3>{{message_no_feedback}}</h3>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <mat-icon color="warn">error</mat-icon>
+    <mat-label style="vertical-align: super">Mandatory fields are missing</mat-label>
+  </div>
+
+  <mat-dialog-content color="warm">
+    <ul class="error-block" *ngFor="let error of errors" >
+      <li>{{error}}</li>
+    </ul>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-stroked-button class="btn btn-outline-primary sharp dialog-button" [mat-dialog-close] >
+      <mat-icon>close</mat-icon>
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,22 @@
+<h2>Edit Roles</h2>
+<h4>{{data.userName}}</h4>
+
+<mat-dialog-content>
+  <div *ngFor="let role of data.roles">
+    <mat-checkbox color="primary" [(ngModel)] = "role.state">{{role.type}}</mat-checkbox>
+    <div *ngIf="role.state && role.options !== undefined && role.options.length > 0">
+      <div class="subrole_checkbox" *ngFor="let option of role.options"><mat-checkbox [(ngModel)] = "option.state">{{option.name}}</mat-checkbox></div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+    <button type="button" mat-stroked-button mat-button [mat-dialog-close]="data" >
+        Save
+    </button>
+    <div fxFlex></div>
+    <button type="button" mat-stroked-button mat-button [mat-dialog-close] >
+        Cancel
+    </button>
+</mat-dialog-actions>

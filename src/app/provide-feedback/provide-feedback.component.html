@@ -1,0 +1,49 @@
+<div *ngIf="receiverIds.length !== 0">
+
+  <mat-form-field style="width: 70%">
+    <mat-select #MatSelect placeholder="{{placeholder_select}}" [(ngModel)]="selectedValue"
+                (ngModelChange)="getAnswers(selectedValue)">
+      <mat-option #MatOption *ngFor="let receiver of receiverIds; let i = index;" [value]="receiver">
+        {{usersJsonObj[receiver]}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+  <form class="response-form">
+    <div *ngFor="let question of Questions; let i = index; trackBy:trackByIndex;">
+      <mat-label>{{question}}</mat-label>
+
+      <mat-form-field class="response-full-width">
+        <textarea style="width: 100%" [(ngModel)]="answers[i]" [ngModelOptions]="{ standalone: true }" matInput
+                  matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=3
+                  placeholder="{{placeholder_answer}}"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <p>
+    <button type="button" mat-stroked-button (click)="save('Save',selectedValue)"
+            class="btn btn-outline-primary sharp">
+      <mat-icon>create</mat-icon>
+      Save
+    </button>
+    &nbsp;
+    <button type="button" mat-stroked-button (click)="submitResponse('Submit',selectedValue)"
+            class="btn btn-outline-primary sharp">
+      <mat-icon>done</mat-icon>
+      Submit
+    </button>
+    &nbsp;
+    <button *ngIf="receiverIds.length > 1" type="button" mat-stroked-button
+            (click)="skip()" class="btn btn-outline-primary sharp">
+      <mat-icon>skip_next</mat-icon>
+      Skip
+    </button>
+
+  </p>
+
+</div>
+<div *ngIf="receiverIds.length === 0">
+  <h3>{{message}}</h3>
+</div>

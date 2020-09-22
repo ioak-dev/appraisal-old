@@ -1,0 +1,45 @@
+<div class="table-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="empid">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="10"> Emp Id </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="10">
+        <span class="mobile-label">Id:</span>
+        {{userNameMap[row.userId]?.empId}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="username" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="15"> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="15">
+        <span class="mobile-label">User:</span>
+        {{userNameMap[row.userId]?.name}}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="useremail">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="30"> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="30">
+        <span class="mobile-label">Email:</span>
+        {{userNameMap[row.userId]?.email}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef fxFlex="10"> Action </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="10">
+        <button mat-icon-button matTooltip="Set goals" matTooltipPosition="before" class="mat-primary" (click)="openViewDialog(row)">
+          <mat-icon>flag</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" [pageSize]="10"></mat-paginator>
+</div>

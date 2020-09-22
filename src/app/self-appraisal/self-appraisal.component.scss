@@ -1,0 +1,35 @@
+.expansion-panel{
+  margin: 5px;
+}
+footer{
+  background-color: #d6d8d9;
+  border-top: 1px solid #999999;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  right: 0px;
+}
+.footer-button{
+  margin: 1%;
+  float: right;
+}
+.error{
+  margin: 1.5% 0 0 2%;
+  display: inline-block;
+}
+a{
+  color: red;
+  cursor: pointer;
+  margin-left: 10px;
+}
+a:hover{
+  text-decoration: underline;
+}
+mat-label{
+  vertical-align: super;
+}
+.submit-msg{
+  color: green;
+  font-weight: bold;
+  margin: 0 5px 0 0;
+}

@@ -1,0 +1,93 @@
+{
+  "OPT_OUT":{
+    "error": "Error Encountered",
+    "success": "You have Opted out of review cycle"
+  },
+  "SAVE_PROVIDERS":{
+    "error": "Error Encountered",
+    "success": "Feedback Providers saved successfully "
+  },
+  "SUBMIT_PROVIDERS":{
+    "error": "Error Encountered",
+    "success": "Feedback Providers submitted successfully "
+  },
+  "WORKFLOW":{
+    "NO_ACTIVE_CYCLE": "No Current Cycle in Progress",
+    "NO_FEEDBACK_TO_REVIEW": "Nothing to review now ",
+    "NO_FEEDBACK_PENDING": "There is no Feedback Pending",
+    "FEEDBACK_REVIEWED": "Response has been Reviewed",
+    "NO_RESPONSE_PROVIDED": "No Response still provided"
+  },
+  "APPROVE_SELECTION":{
+    "error": "Error Encountered",
+    "success": "You Approved  Selection of Participants"
+  },
+  "REJECT_SELECTION":{
+    "error": "Error Encountered",
+    "success": "You Rejected Selection of Participants"
+  },
+  "SELECT_REVIEWER": {
+    "message": "Select a Person from Drop Down to provide Feedback"
+  },
+  "SAVE_FEEDBACK":{
+    "error": "Error Encountered",
+    "success": "Feedback is Saved successfully"
+  },
+  "SUBMIT_FEEDBACK":{
+    "error": "Error Encountered",
+    "success": "Feedback is submitted successfully"
+  },
+  "PAGE_HEADERS": {
+    "PROVIDE_FEEDBACK": "Provide Feedback",
+    "VIEW_FEEDBACK": "View Response"
+  },
+  "PLACEHOLDERS": {
+    "PROVIDE_FEEDBACK_SELECT": "Choose Person",
+    "PROVIDE_FEEDBACK_ANSWERS": "Enter Your answer here",
+    "VIEW_FEEDBACK_CYCLE_SELECT": "Choose Cycle",
+    "VIEW_FEEDBACK_SELECT": "Choose Person"
+  },
+  "APPROVE_RESPONSE":{
+    "error": "Error Encountered",
+    "success": "You Approved  Response of Participants"
+  },
+  "REJECT_RESPONSE":{
+    "error": "Error Encountered",
+    "success": "You Rejected Response of Participants"
+  },
+  "UPDATE_ROLES": {
+    "error": "User role update failed",
+    "success": "Roles updated successfully"
+  },
+  "CREATE_CYCLE": {
+    "error": "Cycle creation failed",
+    "success": "Cycle created successfully"
+  },
+  "ACTIVATE_CYCLE": {
+    "error": "Cycle activation failed",
+    "success": "Cycle activated successfully"
+  },
+  "EXTEND_CYCLE": {
+    "error": "Cycle extension failed",
+    "success": "Cycle extended successfully"
+  },
+  "DELETE_CYCLE": {
+    "error": "Cycle deleteion failed",
+    "success": "Cycle deleted successfully"
+  },
+  "NOTIFY": {
+    "error": "Notification failed",
+    "success": "Notification sent successfully",
+    "BODY_PLACEHOLDER": "Enter e-mail content here"
+  },
+  "LABELS": {
+    "VIEW_RESPONSE_CYCLE_CHECkBOX": "Show feedback for previous cycle"
+  },
+  "SET_GOALS": {
+    "success": "Goals saved successfully!",
+    "submit": "Goals submitted successfully!"
+  }
+}
+
+
+

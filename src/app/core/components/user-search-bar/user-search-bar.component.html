@@ -1,0 +1,15 @@
+<form>
+  <mat-form-field style="width: 100%">
+    <mat-chip-list #chipList>
+      <input #autocompleteInput type="text" placeholder="Select Participants" matInput [formControl]="userSearchControl"
+             [matAutocomplete]="auto" [matChipInputFor]="chipList">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let user of matchingUsers" [value]="user" (onSelectionChange)="addPerson(user)">
+          {{user.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-chip-list>
+
+  </mat-form-field>
+
+</form>

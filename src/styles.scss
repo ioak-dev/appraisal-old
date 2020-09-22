@@ -1,0 +1,60 @@
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "theme.scss";
+@include mat-core();
+@include angular-material-theme($theme-360);
+
+/* for sidenav to take a whole page */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+/* Font family settings across application */
+* {
+  // font-family: Raleway, sans-serif !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
+
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+}
+
+// Blocks of code
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+.custom-auto-save{
+  background: none;
+  margin: 10px 0 0 !important;
+  box-shadow: none;
+  color: green;
+
+}
+

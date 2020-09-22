@@ -1,0 +1,52 @@
+<h2>{{data.currentUser.name}}</h2>
+<div class="userDetails">
+  <table>
+    <thead>
+      <tr>
+        <th>Designation</th>
+        <th>Joining Date</th>
+        <th>Last Appraisal date</th>
+        <th>Appraisal Period</th>
+        <th>Appraisal Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{data.currentUser.designation}}</td>
+        <td>{{data.currentUser.joiningDate | date}}</td>
+        <td>{{data.currentUser.lastAppraisalDate | date}}</td>
+        <td>{{data.currentUser.duration}}&nbsp;days</td>
+        <td>{{data.userStatus}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<mat-dialog-content>
+  <div *ngIf="data.userStatus !== 'SET_GOALS'">
+    <p><strong>Cannot Set Goals Now!</strong> Goals can be set only before the start of appraisal!</p>
+  </div>
+
+  <div *ngIf="data.userStatus === 'SET_GOALS'">
+    <app-self-appraisal-sectionone
+      [currentUser]="data.currentUser"
+      [currentStatus]="data.userStatus"
+      [showSetGoals]="true">
+    </app-self-appraisal-sectionone>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button type="button" *ngIf="data.userStatus !== 'SET_GOALS'" mat-stroked-button mat-button [mat-dialog-close]>
+    <mat-icon>close</mat-icon>
+    Close
+  </button>
+  <button type="button" *ngIf="data.userStatus === 'SET_GOALS'" mat-stroked-button mat-button [mat-dialog-close] (click)="save()">
+    <mat-icon>create</mat-icon>
+    Save as Draft
+  </button>
+  <button type="button" *ngIf="data.userStatus === 'SET_GOALS'" mat-stroked-button mat-button [mat-dialog-close] (click)="submitSelfGoal()">
+    <mat-icon>done</mat-icon>
+    Submit
+  </button>
+</mat-dialog-actions>

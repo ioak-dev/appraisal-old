@@ -1,0 +1,19 @@
+<div>
+  <h2 mat-dialog-title>{{dialogTitle}}</h2>
+
+  <mat-dialog-content>
+    <div>
+      <mat-form-field style="width: 70%">
+        <input matInput placeholder="{{dialogPlaceholder}}" [(ngModel)]="data.suggestion">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button  type="button" mat-stroked-button class="btn btn-outline-primary sharp dialog-button" [mat-dialog-close]="data" >
+      OK
+    </button>
+    <button type="button" mat-stroked-button class="btn btn-outline-primary sharp dialog-button" [mat-dialog-close] >
+      Cancel
+    </button>
+  </mat-dialog-actions>
+</div>

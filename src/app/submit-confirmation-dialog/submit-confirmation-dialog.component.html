@@ -1,0 +1,15 @@
+<div>
+  <mat-dialog-content>
+Self appraisal cannot be edited after submission. Do you want to proceed?
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-stroked-button class="btn btn-outline-primary sharp dialog-button" [mat-dialog-close] >
+      <mat-icon>close</mat-icon>
+      Cancel
+    </button>
+    <button  type="button" mat-stroked-button class="btn btn-outline-primary sharp dialog-button" (click)="proceed()" [mat-dialog-close]="data" >
+      <mat-icon>done</mat-icon>
+      Proceed
+    </button>
+  </mat-dialog-actions>
+</div>

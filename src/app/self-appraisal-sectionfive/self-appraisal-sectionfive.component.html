@@ -1,0 +1,15 @@
+<div *ngIf="appraisalVisibility === 'EDITABLE'">
+  <mat-form-field class="response-full-width">
+        <textarea (focusout)="save()" [(ngModel)]="sectionResponse" [ngModelOptions]="{ standalone: true }"
+                  matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=10 data-ng-minLength="10"
+                  placeholder="Additional Feedback"></textarea>
+  </mat-form-field>
+</div>
+
+<div *ngIf="appraisalVisibility === 'READ-ONLY'">
+  <mat-form-field class="response-full-width">
+        <textarea [disabled]="true" (focusout)="save()" [(ngModel)]="sectionResponse" [ngModelOptions]="{ standalone: true }"
+                  matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=10 data-ng-minLength="10"
+                  placeholder="Additional Feedback"></textarea>
+  </mat-form-field>
+</div>

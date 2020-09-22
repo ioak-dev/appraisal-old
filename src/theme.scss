@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+$theme-360-primary: mat-palette($mat-indigo);
+$theme-360-accent : mat-palette($mat-green);
+$theme-360-warn   : mat-palette($mat-red);
+$theme-360: mat-light-theme(
+    $theme-360-primary,
+    $theme-360-accent,
+    $theme-360-warn
+);

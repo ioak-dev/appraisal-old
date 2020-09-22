@@ -1,0 +1,29 @@
+<div *ngIf="!authService.isAdministrator">
+  <h2>{{this.daysdiff |  number : '1.0-0'}} day/s to go</h2>
+  <p><b>Evaluation period: </b>{{cycle.evaluationPeriod}}</p>
+  <p><b>Self appraisal deadline:</b> {{cycle.selfAppraisalDeadline | date}}</p>
+</div>
+
+<div *ngIf="authService.isAdministrator">
+  <p><b>Self Review: </b>{{status?.selfReview}}</p>
+  <p><b>Head Review:</b> {{status?.headReview}}</p>
+  <p><b>Scheduled:</b> {{status?.scheduled}}</p>
+  <p><b>Closed:</b> {{status?.complete}}</p>
+</div>
+
+
+<br>
+<button mat-stroked-button class="btn btn-outline-primary sharp" routerLink="/goal-definition">
+  <mat-icon>play_arrow</mat-icon>
+  Start Appraisal
+</button>
+&nbsp;
+<button mat-stroked-button class="btn btn-outline-primary sharp" (click)="openSupportDialog()">
+  <mat-icon>email</mat-icon>
+  Contact support
+</button>
+<!--&nbsp;-->
+<!--<button mat-stroked-button class="btn btn-outline-primary sharp"  (click)="help()">-->
+  <!--<mat-icon>block</mat-icon>-->
+  <!--How to unblock content on my browser?-->
+<!--</button>-->

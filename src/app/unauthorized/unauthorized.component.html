@@ -1,0 +1,18 @@
+<div *ngIf="email === null">
+  You are not logged in. <a href="https://aruun2aruun.github.io/appraisal">Login</a> to proceed further
+</div>
+
+<div *ngIf="email !== null">
+  {{displayName}} ({{email}}) is not authorized to access the app
+</div>
+
+<!--<br>-->
+<!--<button mat-stroked-button class="btn btn-outline-primary sharp" (click)="openSupportDialog()">-->
+  <!--<mat-icon>email</mat-icon>-->
+  <!--Contact support-->
+<!--</button>-->
+<!--&nbsp;-->
+<!--<button mat-stroked-button class="btn btn-outline-primary sharp"  (click)="help()">-->
+  <!--<mat-icon>block</mat-icon>-->
+  <!--How to unblock content on my browser?-->
+<!--</button>-->

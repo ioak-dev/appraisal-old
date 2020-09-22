@@ -1,0 +1,65 @@
+.response-form {
+  min-width: 150px;
+  width: 70%;
+}
+.example-full-width {
+  width: 75px;
+}
+.response-full-width {
+  width: 100%;
+}
+.set-goals {
+  display: flex;
+  align-items: flex-end;
+}
+mat-icon{
+  vertical-align: sub;
+}
+.score{
+  border: none;
+  padding: 0px;
+}
+textarea {
+  font-size: 13px;
+}
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+.description {
+  margin: 5px 0 10px;
+}
+.selfAppraisalEditable {
+  background-color: rgba($color: #cce5ff, $alpha: 0.5);
+  border-radius: 4px;
+  border: 1px solid #b8daff;
+  color: #004085;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}
+.selfAppraisalReadOnly {
+  background-color: rgba($color: #e2e3e5, $alpha: 0.5);
+  border-radius: 4px;
+  border: 1px solid #d6d8db;
+  color: #383d41;
+  padding: 10px 10px 0;
+  margin: 10px 0 0;
+}
+.reviewerSectionEditable {
+  background-color: rgba($color: #cce5ff, $alpha: 0.5);
+  border-radius: 4px;
+  border: 1px solid #b8daff;
+  color: #004085;
+  padding: 10px 10px 0;
+  margin: 0 0 10px 0;
+}
+.reviewerSectionReadOnly {
+  > div {
+    background-color: rgba($color: #e2e3e5, $alpha: 0.5);
+    border-radius: 4px;
+    border: 1px solid #d6d8db;
+    color: #383d41;
+    padding: 10px 10px 0;
+    margin: 0;
+  }
+}

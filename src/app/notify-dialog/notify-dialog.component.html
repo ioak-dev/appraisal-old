@@ -1,0 +1,27 @@
+<h2>{{this.dialogHeader}}</h2>
+
+<mat-dialog-content>
+  <form class="form">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="To" value="" [(ngModel)]="data.to" [ngModelOptions]="{standalone: true}" disabled=true>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Subject" value="" [(ngModel)]="this.data.subject" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea style="width: 100%" [(ngModel)]="this.data.body" [ngModelOptions]="{standalone: true}" matInput matTextareaAutosize matAutosizeMinRows=9 matAutosizeMaxRows=9 placeholder="Body"></textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea style="width: 100%" [(ngModel)]="this.data.signature" [ngModelOptions]="{standalone: true}" matInput matTextareaAutosize matAutosizeMinRows=2 matAutosizeMaxRows=3 placeholder="Signature"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button type="button" mat-stroked-button mat-button [mat-dialog-close]="data" >
+    Send
+  </button>
+  <button type="button" mat-stroked-button mat-button [mat-dialog-close]>
+    Cancel
+  </button>
+</mat-dialog-actions>
