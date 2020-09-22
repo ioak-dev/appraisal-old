@@ -3,10 +3,20 @@
   margin: 10px;
 }
 .logo {
-  background: #fff;
+  // background: #ffffff66;
   cursor: auto;
-  margin: 0 10px 0 -15px;
-  padding: 5px 10px 0px 10px;
+  // margin: 0 10px 0 -15px;
+  // padding: 5px 10px 0px 10px;
+  margin-right: 20px;
+  img {
+    width: auto;
+    height: 16px;
+    display: flex;;
+    align-self: center;
+  }
+  // svg {
+  //   width: 120px;
+  // }
 }
 @media(max-width: 600px) {
   .logo {
